@@ -7,4 +7,12 @@ import java.util.List;
 public interface IBookService {
 
     List<Book> getBookList(int page, int size, String sortDir, String sort);
+
+    void updateBook(Book post);
+
+    Book createBook(Book post);
+
+    Book getBookById(Long id);
+
+    void deleteBookById(Long id);
 }
