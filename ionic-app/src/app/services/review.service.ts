@@ -15,7 +15,6 @@ export class ReviewService {
   newReview = new EventEmitter<Review>();
   deletedReview = new EventEmitter<number>();
 
-
   getReviews(page: number, size: number): Observable<Review[]> {
     let params = new HttpParams({
 
@@ -45,10 +44,10 @@ export class ReviewService {
   deleteReview(reviewId: number) {
     return new Promise(resolve => {
       return this.http.delete(environment.urlAPI + '/reviews/' + reviewId)
-      .subscribe( (response) => {
-        this.deletedReview.emit(reviewId);
-        resolve(true);
-      });
+        .subscribe((response) => {
+          this.deletedReview.emit(reviewId);
+          resolve(true);
+        });
     });
   }
 }
